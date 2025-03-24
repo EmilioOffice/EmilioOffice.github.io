@@ -8,6 +8,14 @@
   <link rel="stylesheet" href="./assets/css/aos.css" />
   <link rel="stylesheet" href="./assets/css/line-awesome.min.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <!-- Add padding to ensure content is not hidden behind the fixed navbar -->
+  <style>
+    body {
+      padding-top: 80px; /* Adjust if navbar is taller or shorter */
+      margin: 0;
+    }
+  </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target=".navbar">
   <!--NAVBAR-->
@@ -328,7 +336,7 @@
                 />
               </div>
               <div class="card-custom-content p-4">
-                <p class="text-brand mb-2">23 March, 2025</p>
+                <p class="text-brand mb-2">9 March, 2025</p>
                 <h5 class="mb-3">My journey at Intel</h5>
                 <p class="mb-3">
                   A deep dive into my time working for one year in the MRC Xeon development.
@@ -349,18 +357,17 @@
                 />
               </div>
               <div class="card-custom-content p-4">
-                <p class="text-brand mb-2">03 January, 2025</p>
+                <p class="text-brand mb-2">23 March, 2025</p>
                 <h5 class="mb-3">Understanding the UEFI (BIOS)</h5>
                 <p class="mb-3">
-                  Basic understanding of the Unified Extensible Firmware Interface used in most of the 
-                  processors of nowdays.
+                  Basic understanding of the Unified Extensible Firmware Interface used in most of today's processors.
                 </p>
                 <a href="UEFIBlog.html" class="link-custom">Read Article</a>
               </div>
             </div>
           </div>
 
-          <!-- Blog Post 
+          <!-- Blog Post (commented out if not needed)
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
             <div class="card-custom rounded-4 bg-base shadow-effect">
               <div class="card-custom-image rounded-4">
@@ -378,9 +385,9 @@
                 </p>
                 <a href="blog3.html" class="link-custom">Read Article</a>
               </div>
-            -->
             </div>
           </div>
+          -->
         </div>
       </div>
     </section>
@@ -388,67 +395,77 @@
 
     <!-- CONTACT -->
     <section id="contact" class="full-height px-lg-5">
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-lg-8 pb-4" data-aos="fade-up">
-            <h6 class="text-brand">CONTACT</h6>
-            <h1>Interested in working together? Let's talk</h1>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="column-lg-8">
-                <p class="lead mt-2 mb-4">
-                  Feel free to contact me for any work opportunity you consider matches
-                  my talents. Thank you very much for taking the time to visit my
-                  Portfolio.
-                </p>
-                <h5 class="text-brand">My email:</h5>
-                <!-- Clickable mailto link -->
-                <h6>
-                  <a href="mailto:emiliomrqzoff@gmail.com" class="text-decoration-none">
-                    emiliomrqzoff@gmail.com
-                  </a>
-                </h6>
-              </div>
+        <div class="container">
+
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8 pb-4" data-aos="fade-up">
+                    <h6 class="text-brand">CONTACT</h6>
+                    <h1>Interested in working together? Let's talk</h1>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="column-lg-8">
+                            
+                            <p class="lead mt-2 mb-4">Feel free to contact me for any work oportunity you consider will match with my talents, and Thank you very much for taking the time of visiting my Portfolio.</p>
+                            <h5 class="text-brand">My email:</h5>
+                            <h6><a href="mailto:emiliomrqzoff@gmail.com" class="text-decoration-none">emiliomrqzoff@gmail.com</a></h6>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 
+                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="300">
+                    <form action="#" class="row g-lg-3 gy-3">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="email" class="form-control" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group col-12">
+                            <input type="text" class="form-control" placeholder="Enter subject">
+                        </div>
+                        <div class="form-group col-12">
+                            <textarea name="" rows="4" class="form-control" placeholder="Enter your message"></textarea>
+                        </div>
+                        <div class="form-group col-12 d-grid">
+                            <button type="submit" class="btn btn-brand">Contact me</button>
+                        </div>
+                    </form>
+                </div>
+                -->
             </div>
-          </div>
+
+
         </div>
-      </div>
     </section>
     <!-- //CONTACT -->
 
-    <!-- FOOTER -->
-    <footer class="py-5 px-lg-5">
-      <div class="container">
-        <div class="row gy-4 justify-content-between">
-          <div class="col-auto">
-            <p class="mb-0">
-              Designed by <a href="#" class="fw-bold">EMILIO</a>
-            </p>
-            <p>&copy; 2025 Personal Portfolio</p>
-          </div>
-          <div class="col-auto">
-            <div class="social-icons">
-              <a href="https://www.facebook.com/emilio.marquez.7334"
-                ><i class="lab la-facebook-square"></i
-              ></a>
-              <a href="https://www.instagram.com/emilio_mrqz/"
-                ><i class="lab la-instagram"></i
-              ></a>
-              <a href="https://www.linkedin.com/in/emilio-marquez-prfl-lnkdn/"
-                ><i class="lab la-linkedin-in"></i
-              ></a>
-              <a href="https://github.com/EmilioOffice"
-                ><i class="lab la-github"></i
-              ></a>
-            </div>
+  <!--//CONTENT-WRAPPER-->
+
+  <!-- FOOTER -->
+  <footer class="py-5 px-lg-5">
+    <div class="container">
+      <div class="row gy-4 justify-content-between">
+        <div class="col-auto">
+          <p class="mb-0">
+            Designed by <a href="#" class="fw-bold">EMILIO</a>
+          </p>
+          <p>&copy; 2025 Personal Portfolio</p>
+        </div>
+        <div class="col-auto">
+          <div class="social-icons">
+            <a href="https://www.facebook.com/emilio.marquez.7334"><i class="lab la-facebook-square"></i></a>
+            <a href="https://www.instagram.com/emilio_mrqz/"><i class="lab la-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/emilio-marquez-prfl-lnkdn/"><i class="lab la-linkedin-in"></i></a>
+            <a href="https://github.com/EmilioOffice"><i class="lab la-github"></i></a>
           </div>
         </div>
       </div>
-    </footer>
-    <!-- //FOOTER -->
-  </div>
-  <!--//CONTENT-WRAPPER-->
+    </div>
+  </footer>
+  <!-- //FOOTER -->
 
   <script src="./assets/js/bootstrap.bundle.min.js"></script>
   <script src="./assets/js/aos.js"></script>
