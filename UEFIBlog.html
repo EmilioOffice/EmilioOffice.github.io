@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Blog - UEFI Understanding</title>
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./assets/css/aos.css" />
+  <link rel="stylesheet" href="./assets/css/line-awesome.min.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+  <div class="container my-5">
+    <a href="index.html" class="btn btn-secondary mb-4">← Back to Portfolio</a>
+    
+    <img
+      src="./assets/images/UEFI_logo.png"
+      alt="UEFI_logo"
+      class="img-fluid rounded-4 mb-4 mx-auto d-block"
+      style="max-width: 300px; height: auto;"
+    />
+
+    <h1>Introduction to UEFI</h1>
+    <p class="text-brand">Published on January 3rd, 2025 by Emilio Marquez</p>
+
+    <p>
+      <strong>UEFI (Unified Extensible Firmware Interface)</strong> is the modern firmware interface 
+      that replaces the traditional BIOS in most of today’s computers. Originally known as EFI 
+      (Extensible Firmware Interface), it was developed by Intel in the 1990s to overcome the limitations 
+      of legacy BIOS—such as operating in 16-bit mode and having limited address space. Over time, and with 
+      collaboration from multiple manufacturers (plus the formation of the UEFI Forum in 2005), EFI evolved 
+      into UEFI, adopting an open and extensible standard.
+    </p>
+
+    <h2>Features and Functions of UEFI</h2>
+    <ul>
+      <li>
+        <strong>Modern and Flexible Interface:</strong> Supports graphical interfaces, mouse input, and 
+        complex pre-boot applications, offering a better user experience.
+      </li>
+      <li>
+        <strong>Modular Architecture:</strong> Allows independent drivers and applications to load in phases 
+        during boot, improving scalability and simplifying updates.
+      </li>
+      <li>
+        <strong>Security:</strong> Includes features like Secure Boot, ensuring only signed code executes 
+        during startup, protecting the system from malware.
+      </li>
+      <li>
+        <strong>Support for Large Memory and Disks:</strong> Enables booting from storage devices larger 
+        than 2.2 TB—something traditional BIOS could not handle.
+      </li>
+      <li>
+        <strong>Boot Phases:</strong> UEFI handles hardware initialization and hands off control to the 
+        operating system through multiple stages (SEC, PEI, DXE, BDS, TSL, and Runtime).
+      </li>
+    </ul>
+
+    <h3>Historical Context</h3>
+    <p>
+      <strong>Before UEFI:</strong> BIOS (Basic Input/Output System) was the dominant firmware for decades, 
+      but had limitations regarding speed, memory handling, and modern functionality.
+    </p>
+    <p>
+      <strong>The Birth of EFI:</strong> Intel created EFI in the mid-1990s to address these shortcomings, 
+      introducing a more flexible and powerful interface.
+    </p>
+    <p>
+      <strong>Evolution into UEFI:</strong> Through industry-wide adoption and standardization by the UEFI Forum, 
+      EFI evolved into UEFI—an open standard that modern computers now rely on.
+    </p>
+    <p>
+      In short, UEFI marks the transition from the constraints of legacy BIOS to a more advanced, secure, and 
+      extensible platform. Intel initiated its development in the 1990s, and it became an open standard around 
+      2005, thanks to the collaboration of major tech-industry players.
+    </p>
+
+    <hr class="my-5" />
+
+    <p>
+      The <strong>UEFI Boot Process</strong> can be divided into six distinct phases. These phases work
+      together to ensure a secure, modular, and robust initialization of the platform
+      before handing control over to the operating system.
+    </p>
+
+    <h4 class="mt-4">1. SEC (Security Phase)</h4>
+    <p>
+      The <strong>SEC</strong> phase is responsible for establishing a trusted foundation.
+      It sets up a minimal environment to begin code execution, verifies firmware integrity,
+      and prepares essential CPU functions. This stage ensures that subsequent phases can
+      run securely.
+    </p>
+
+    <h4 class="mt-4">2. PEI (Pre-EFI Initialization)</h4>
+    <p>
+      During the <strong>PEI</strong> phase, the system initializes critical hardware resources,
+      including main memory. PEI modules (PEIMs) gather information about the platform and
+      pass this data forward to the next stage. Proper memory training is crucial at this point,
+      as it helps ensure reliable DRAM operation for later phases.
+    </p>
+
+    <h4 class="mt-4">3. DXE (Driver Execution Environment)</h4>
+    <p>
+      The <strong>DXE</strong> phase loads and executes drivers, enabling a wide range of platform
+      features. This environment is highly modular, allowing different firmware drivers to be loaded
+      on demand. The <strong>MRC (Memory Reference Code)</strong> is often part of DXE, further refining
+      memory settings and enabling stable operation.
+    </p>
+
+    <h4 class="mt-4">4. BDS (Boot Device Selection)</h4>
+    <p>
+      In the <strong>BDS</strong> phase, the firmware determines which boot devices are available
+      and selects the appropriate device to load the operating system from. Official guidelines
+      underscore the importance of consistent device enumeration here, ensuring a seamless handoff
+      to the OS loader.
+    </p>
+
+    <h4 class="mt-4">5. TSL (Transient System Load)</h4>
+    <p>
+      <strong>TSL</strong> is sometimes described as part of BDS in certain references, but
+      <em>Beyond the BIOS</em> treats it as its own stage. In TSL, the firmware transfers control
+      to the transient OS loader or boot manager, bridging the gap between the firmware driver
+      environment and the OS startup routines.
+    </p>
+
+    <h4 class="mt-4">6. RT (Runtime)</h4>
+    <p>
+      Finally, the <strong>RT</strong> (Runtime) phase is where UEFI services are made available
+      to the operating system as needed. Certain UEFI runtime functions, such as variable services,
+      remain accessible even after the OS has taken over. This flexibility is one of UEFI’s major
+      advantages over legacy BIOS.
+    </p>
+
+    <p class="mt-4">
+      Together, these six phases (SEC, PEI, DXE, BDS, TSL, and RT) illustrate how UEFI
+      orchestrates everything from low-level security checks to boot device selection
+      and ongoing runtime services. By adhering to the guidelines in <em>Beyond the BIOS</em> 
+      and other official sources, firmware engineers can build a reliable, future-ready 
+      boot process that benefits both hardware and software ecosystems.
+    </p>
+
+    <h2 class="mt-5">Some Great Resources</h2>
+    <p>
+      My personal recommendation for learning more about UEFI is to visit the 
+      <a href="https://uefi.org/learning_center/presentationsandvideos" class="link-custom">UEFI Forum</a> 
+      page, specifically the “Videos and Presentations” section. There, you can find details on the 
+      evolution of UEFI specifications, which is an excellent starting point if you want to build 
+      or modify your own firmware.
+    </p>
+
+    <p>
+      Another valuable resource is the book 
+      <a href="https://www.oreilly.com/search/?q=Beyond%20the%20bios&rows=100" class="link-custom">
+        <em>Beyond the BIOS</em>
+      </a>. Written by firmware developers (many from Intel), it provides a comprehensive look at 
+      UEFI’s internal design. This can be particularly helpful since few educational institutions 
+      cover firmware details beyond a high-level overview of “what happens during boot time.”
+    </p>
+
+    <p>
+      Finally, if you’re interested in understanding computer architecture more deeply—especially DRAM, 
+      ISA trade-offs, and CPU core operations—consider watching 
+      <a href="https://www.youtube.com/watch?v=zLP_X4wyHbY&list=PL5PHm2jkkXmi5CxxI7b3JCL1TWybTDtKq" class="link-custom">
+        Professor Onur Mutlu’s lectures
+      </a> at Carnegie Mellon University. These videos explain concepts like ECC (Error Correction Code), 
+      cache memory in different levels, microarchitecture, and data pipelining. Such knowledge 
+      greatly benefits engineers working at the hardware-software boundary.
+    </p>
+
+    <h2 class="mt-5">Focus on the First Three Phases</h2>
+    <img
+      src="./assets/images/UEFI_Boot_Flow.png"
+      alt="Trusted Boot Flow"
+      class="img-fluid rounded-4 mb-4 mx-auto d-block"
+      style="max-width: 570px; height: auto;"
+    />
+    <p>
+      In this article, I emphasize the <strong>SEC, PEI, and DXE</strong> phases because these are where 
+      I’ve spent most of my time working, as mentioned before. The <em>MRC</em> is integrated into these 
+      phases, although it occupies only a small portion of the overall firmware flow.
+    </p>
+    <p>
+      <strong>SEC</strong> also referenced as <strong>ACM</strong> which means <em>Alias Checker Module</em>, sets the initial foundation, verifying firmware integrity by making sure it is compatible with the platform,
+      for example if it has the IA32 instruction set, if it is for a 32-bits platform or a 64-bits platform, and preparing the CPU for subsequent phases by stating the directions of important devices,
+      preparing the main communication protocols such as <em>I2C</em> and <em>I3C</em> to send the first commands to start.
+    </p>
+    <p>
+      After <strong>SEC</strong>, the <strong>PEI</strong> phase kicks in, initializing memory and collecting essential platform data. This is typically where memory training is performed to ensure reliable DRAM but it could change between platforms,
+      also in this phase there are what is called a <em>Firmware Volume</em>, and not only one, there are a lot, each of this <em>Firmware Volume</em> has its own name and its own protocols to do some specific tasks, like the uCode, PrimeCode,
+      <strong>ACTM</strong> and some others, and to be more specific the <strong>ACTM</strong> <em>Firmware Volume</em>, takes care of verifying the security devices like TPM, and information of the <em>DIMMs (Dual In-line Memory Module)</em>, usually these ones are working with
+      DDR technologies to understand them, you will ned to investigate through the JEDEC Specs.
+    </p>
+    <p>
+      Finally, <strong>DXE</strong> loads and executes drivers for the rest of the system’s hardware, such 
+      as storage and network devices. It also constructs data structures to manage driver execution order 
+      and loads protocols that will pass control to the <strong>BDS</strong> phase.
+    </p>
+
+    <h2 class="mt-5">Conclusion</h2>
+    <p>
+      UEFI represents a significant leap forward from legacy BIOS, offering improved security, modularity, 
+      and flexibility for modern computing platforms. Whether you’re a firmware engineer, a student exploring 
+      system-level development, or simply someone curious about how your computer boots up, understanding 
+      these phases and resources can deepen your appreciation for the intricate work that happens behind 
+      the scenes.
+    </p>
+    <p>
+      By focusing on collaboration, industry standards, and a commitment to extensibility, UEFI has paved 
+      the way for secure and robust hardware initialization across countless devices worldwide. Regardless 
+      of the specific company or project you’re involved in, gaining familiarity with UEFI’s structure and 
+      boot phases can significantly enhance your capability to design, troubleshoot, or innovate within 
+      system firmware.
+    </p>
+
+    <h5 class="mt-5">If you ever have the opportunity to dive deeper into UEFI development,</h5>
+    <h5 class="mt-3">embrace it and enjoy it!</h5>
+
+    <a href="index.html" class="btn btn-brand mt-4">← Return to Portfolio</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="py-5 px-lg-5">
+    <div class="container">
+      <div class="row gy-4 justify-content-between">
+        <div class="col-auto">
+          <p class="mb-0">
+            Designed by <a href="#" class="fw-bold">EMILIO</a>
+          </p>
+          <p>&copy; 2025 Personal Blog</p>
+        </div>
+        <div class="col-auto">
+          <div class="social-icons">
+            <a href="https://www.facebook.com/emilio.marquez.7334"><i class="lab la-facebook-square"></i></a>
+            <a href="https://www.instagram.com/emilio_mrqz/"><i class="lab la-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/emilio-marquez-prfl-lnkdn/"><i class="lab la-linkedin-in"></i></a>
+            <a href="https://github.com/EmilioOffice"><i class="lab la-github"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- //FOOTER -->
+</body>
+</html>
